@@ -4,12 +4,9 @@ const pool = require("../database/database");
 const router = express.Router();
 const RadiosModel = require("../models/RadiosModel");
 
+
 //      /radios
 router.get("/", radiosController.radios);
-
-router.get("/emConst", (req, res)=> {
-  res.render('ci/emConst')
-});
 
 // Rota de retorno do Edite
 router.get("/edit/:id", async (req, res) => {

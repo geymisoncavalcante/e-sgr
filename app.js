@@ -1,9 +1,11 @@
 const express = require('express');
 const app = express();
+const flash = require('express-flash')
 const pool = require('./database/database');
 const bodyParser = require('body-parser');
 const homeRouter = require('./router/homeRouter');
 const radiosRouter = require('./router/radiosRouter');
+const fontesRouter = require('./router/fontesRouter')
 
 
 app.set('view engine', 'ejs');
@@ -14,8 +16,11 @@ app.use(bodyParser.json());
 
 
 
-app.use('/', homeRouter);
+app.use('/home', homeRouter);
 app.use('/radios', radiosRouter);
+app.use('/fontes', fontesRouter);
+
+app.use(flash());
 
 
 
